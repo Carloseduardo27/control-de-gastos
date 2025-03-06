@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="logo.ico">
+    <title>Control de Gastos</title>
+</head>
+
+<body>
+    <h1>Gastos Mensuales</h1>
+
+    <div class="container">
+        <!-- Columna Izquierda -->
+        <div class="left-column">
+            <div class="form-group">
+                <h3 style="text-align: center">Presupuesto Mensual</h3>
+                <input type="number" id="budget" placeholder="Monto" />
+                <button onclick="setBudget()">Establecer</button>
+                <button onclick="resetBudget()" style="background-color: #dc3545; margin-top: 5px">
+                    Restablecer
+                </button>
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align: center">Agregar Gasto</h3>
+                <input type="text" id="expenseName" placeholder="Nombre del gasto" />
+                <select id="expenseCategory">
+                    <option value="Comida">Alimentación</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Servicios">Servicio</option>
+                    <option value="Servicios">Salud</option>
+                    <option value="Servicios">Entretenimiento</option>
+                    <option value="Servicios">Ropa</option>
+                    <option value="Servicios">Ahorros</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <input type="number" id="expenseAmount" placeholder="Monto en Bs" />
+                <button onclick="addExpense()">Agregar Gasto</button>
+            </div>
+        </div>
+
+        <!-- Columna Derecha -->
+        <div class="right-column">
+            <h3 style="text-align: center">Listado</h3>
+            <table id="expensesTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Monto</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody id="expensesList"></tbody>
+            </table>
+
+            <div class="budget-info">
+                <p>
+                    <strong>Presupuesto:</strong> Bs <span id="totalBudget">0</span>
+                </p>
+                <p>
+                    <strong>Restante:</strong> Bs <span id="remainingBudget">0</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+</body>
+
+</html>
